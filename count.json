@@ -1,0 +1,27 @@
+[
+  {
+    "customerId": "CUST-0002",
+    "updateCount": 4,
+    "lastUpdatedAt": "2026-11-20T16:04:02.720Z"
+  },
+  {
+    "customerId": "CUST-0001",
+    "updateCount": 3,
+    "lastUpdatedAt": "2026-11-20T16:10:18.556Z"
+  },
+  {
+    "customerId": "CUST-0005",
+    "updateCount": 1,
+    "lastUpdatedAt": "2026-11-20T16:04:13.407Z"
+  },
+  {
+    "customerId": "CUST-0006",
+    "updateCount": 1,
+    "lastUpdatedAt": "2026-11-20T16:04:25.008Z"
+  },
+  {
+    "customerId": "CUST-0004",
+    "updateCount": 1,
+    "lastUpdatedAt": "2026-11-20T16:10:48.439Z"
+  }
+]

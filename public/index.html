@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Visual Storage System - Exp 3</title>
+
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- React draws the whole page inside this one element (see app.jsx) -->
+    <div id="root"></div>
+
+    <!-- React + Babel (local copies in public/vendor, no internet needed) -->
+    <script src="vendor/react.production.min.js"></script>
+    <script src="vendor/react-dom.production.min.js"></script>
+    <script src="vendor/babel.min.js"></script>
+
+    <!-- Babel turns the JSX in app.jsx into plain JavaScript in the browser -->
+    <script type="text/babel" data-presets="react" src="app.jsx"></script>
+
+</body>
+</html>

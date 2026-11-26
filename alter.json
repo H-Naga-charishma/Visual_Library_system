@@ -1,0 +1,27 @@
+[
+  {
+    "alterId": "ALT-1791439064605",
+    "customerId": "CUST-0002",
+    "customerName": "Joe",
+    "type": "alter",
+    "changes": {
+      "customerName": {
+        "from": "Jhanvi",
+        "to": "Joe"
+      },
+      "customerPhone": {
+        "from": "9449375345",
+        "to": "9449375568"
+      },
+      "customerEmail": {
+        "from": "jhanvi@gmail.com",
+        "to": "joe@gmail.com"
+      },
+      "shelves": {
+        "from": 3,
+        "to": 4
+      }
+    },
+    "alteredAt": "2026-10-08T05:57:44.605Z"
+  }
+]

@@ -1,0 +1,1247 @@
+/* =========================================
+   LIBRARY VISUAL STORAGE SYSTEM
+   MAIN STYLESHEET
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #eef2f7;
+    color: #0f172a;
+    padding: 30px 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
+
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.panel {
+    background: #f8fafc;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #dbe3ec;
+    flex: 1;
+    min-width: 0;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.panel h2 {
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+    color: #0284c7;
+    border-bottom: 1px solid #dbe3ec;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.text-input {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 0.9rem;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.text-input:focus {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.input-hint {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+/* =========================================
+   DOOR TYPE RADIO BUTTONS
+   ========================================= */
+
+input[type="radio"] {
+    display: none;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.radio-btn {
+    text-align: center;
+    background: #ffffff;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #334155;
+    transition: all 0.2s ease;
+}
+
+.radio-btn:hover {
+    border-color: #0284c7;
+    color: #0284c7;
+}
+
+/* Selected door */
+
+#door-hinged:checked ~ .container label[for="door-hinged"],
+#door-sliding:checked ~ .container label[for="door-sliding"],
+#door-glass:checked ~ .container label[for="door-glass"],
+#door-lifting:checked ~ .container label[for="door-lifting"] {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: #ffffff;
+}
+
+/* =========================================
+   FIXED LOCK
+   ========================================= */
+
+.fixed-lock {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 12px;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   VISUAL STAGE
+   ========================================= */
+
+.visual-stage {
+    background: #e2e8f0;
+    border-radius: 10px;
+    padding: 30px 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+    align-items: end;
+    gap: 20px;
+    min-height: 420px;
+    max-height: 650px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 1200px;
+    border: 1px solid #cbd5e1;
+}
+
+.visual-stage:empty::before {
+    content: "Enter cupboard and shelf values to generate the design";
+    color: #64748b;
+    font-size: 0.9rem;
+    text-align: center;
+    align-self: center;
+    grid-column: 1 / -1;
+}
+
+/* =========================================
+   CUPBOARD
+   ========================================= */
+
+.cupboard-unit {
+    width: 150px;
+    height: 300px;
+    background: #2b1704;
+    border: 8px solid #4a2809;
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    flex-shrink: 0;
+}
+
+.visual-stage .cupboard-unit:only-child {
+    grid-column: 1 / -1;
+}
+
+/* =========================================
+   SHELVES
+   ========================================= */
+
+.shelf {
+    height: 100%;
+    min-height: 0;
+    border-bottom: 8px solid #5c320b;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 6px 2px 6px;
+    background: radial-gradient(
+        circle at center,
+        #3b2006 0%,
+        #1f1003 100%
+    );
+    position: relative;
+    box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.4);
+    overflow: visible;
+}
+
+.shelf:last-child {
+    border-bottom: none;
+}
+
+/* =========================================
+   BOOKS
+   ========================================= */
+
+.books {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.book {
+    border-radius: 2px 3px 0 0;
+    position: relative;
+    box-shadow:
+        2px 0 5px rgba(0, 0, 0, 0.5),
+        inset -1px 0 2px rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+}
+
+.book::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 4px 0 rgba(255, 215, 0, 0.6);
+}
+
+.b-leather {
+    background: linear-gradient(
+        90deg,
+        #7f1d1d,
+        #991b1b,
+        #7f1d1d
+    );
+    width: 14px;
+    height: 85%;
+}
+
+.b-navy {
+    background: linear-gradient(
+        90deg,
+        #1e3a8a,
+        #1d4ed8,
+        #1e3a8a
+    );
+    width: 18px;
+    height: 95%;
+}
+
+.b-emerald {
+    background: linear-gradient(
+        90deg,
+        #064e3b,
+        #047857,
+        #064e3b
+    );
+    width: 12px;
+    height: 75%;
+}
+
+.b-gold {
+    background: linear-gradient(
+        90deg,
+        #78350f,
+        #b45309,
+        #78350f
+    );
+    width: 16px;
+    height: 90%;
+}
+
+.b-plum {
+    background: linear-gradient(
+        90deg,
+        #581c87,
+        #7e22ce,
+        #581c87
+    );
+    width: 15px;
+    height: 80%;
+}
+
+.b-teal {
+    background: linear-gradient(
+        90deg,
+        #134e4a,
+        #0f766e,
+        #134e4a
+    );
+    width: 13px;
+    height: 88%;
+}
+
+/* =========================================
+   NORMAL DOORS
+   ========================================= */
+
+.door-panel {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+
+    background: linear-gradient(
+        135deg,
+        #4a2809 0%,
+        #2b1704 100%
+    );
+
+    border: 1px solid #6e3b0e;
+
+    transition:
+        transform 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.7s ease;
+
+    z-index: 20;
+}
+
+.door-panel.left {
+    left: 0;
+    transform-origin: left center;
+    border-right: 1px solid #1f1003;
+}
+
+.door-panel.right {
+    right: 0;
+    transform-origin: right center;
+    border-left: 1px solid #1f1003;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* =========================================
+   LOCK HARDWARE
+   ========================================= */
+
+.lock-hardware {
+    background: linear-gradient(
+        135deg,
+        #e2e8f0,
+        #94a3b8
+    );
+
+    border: 1px solid #475569;
+    border-radius: 3px;
+
+    font-size: 9px;
+    padding: 3px 4px;
+    margin-left: 2px;
+
+    font-weight: bold;
+    color: #0f172a;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   HINGED DOOR
+   ========================================= */
+
+#door-hinged:checked ~ .container
+.cupboard-unit:hover .door-panel.left {
+    transform: rotateY(-110deg);
+    box-shadow: -12px 10px 18px rgba(0, 0, 0, 0.35);
+}
+
+#door-hinged:checked ~ .container
+.cupboard-unit:hover .door-panel.right {
+    transform: rotateY(110deg);
+    box-shadow: 12px 10px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================
+   GLASS DOOR
+   ========================================= */
+
+#door-glass:checked ~ .container .door-panel {
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(3px);
+    border: 3px solid rgba(74, 40, 9, 0.9);
+    box-shadow:
+        inset 0 0 15px rgba(255, 255, 255, 0.7),
+        0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+#door-glass:checked ~ .container
+.cupboard-unit:hover .door-panel.left {
+    transform: rotateY(-110deg);
+    box-shadow: -12px 10px 18px rgba(0, 0, 0, 0.35);
+}
+
+#door-glass:checked ~ .container
+.cupboard-unit:hover .door-panel.right {
+    transform: rotateY(110deg);
+    box-shadow: 12px 10px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================
+   SLIDING DOORS
+   ========================================= */
+
+/* LEFT DOOR MOVES RIGHT */
+
+#door-sliding:checked ~ .container
+.cupboard-unit .door-panel.left:hover,
+
+#door-sliding:checked ~ .container
+.cupboard-unit .door-panel.left.touch-open {
+    transform: translateX(100%);
+    box-shadow: 12px 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* RIGHT DOOR MOVES LEFT */
+
+#door-sliding:checked ~ .container
+.cupboard-unit .door-panel.right:hover,
+
+#door-sliding:checked ~ .container
+.cupboard-unit .door-panel.right.touch-open {
+    transform: translateX(-100%);
+    box-shadow: -12px 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================
+   LIFTING / SHELF-BY-SHELF DOORS
+   ========================================= */
+
+.shelf-door {
+    display: none;
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 30;
+
+    background: linear-gradient(
+        135deg,
+        #4a2809 0%,
+        #2b1704 100%
+    );
+
+    border: 1px solid #6e3b0e;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.3);
+
+    transform: translateY(0);
+
+    transition:
+        transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.45s ease;
+}
+
+/* Small handle on lifting door */
+
+.shelf-door::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 8px;
+
+    transform: translateX(-50%);
+
+    width: 24px;
+    height: 5px;
+
+    border-radius: 4px;
+
+    background: #94a3b8;
+}
+
+/* Hide normal cupboard doors */
+
+#door-lifting:checked ~ .container
+.door-panel {
+    display: none;
+}
+
+/* Show individual shelf doors */
+
+#door-lifting:checked ~ .container
+.shelf-door {
+    display: block;
+}
+
+/* Open ONLY the shelf being hovered */
+
+#door-lifting:checked ~ .container
+.shelf:hover .shelf-door {
+    transform: translateY(-100%);
+}
+
+/* =========================================
+   ORDER SUMMARY
+   ========================================= */
+
+.output-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 16px;
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+
+    min-height: 250px;
+}
+
+.output-item {
+    background: #e0f2fe;
+    color: #0369a1;
+
+    padding: 10px 14px;
+
+    border-radius: 6px;
+    margin-bottom: 10px;
+
+    font-weight: 600;
+
+    border: 1px solid #bae6fd;
+}
+
+/* =========================================
+   ACTION BUTTONS
+   ========================================= */
+
+.action-buttons {
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.main-btn,
+.secondary-btn {
+    border: none;
+    border-radius: 6px;
+
+    padding: 12px;
+
+    cursor: pointer;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.main-btn {
+    background: #0284c7;
+    color: white;
+}
+
+.main-btn:hover {
+    background: #0369a1;
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.secondary-btn:hover {
+    background: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   CUSTOM POPUP
+   ========================================= */
+
+.custom-popup-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+}
+
+.custom-popup-overlay.show {
+    display: flex;
+}
+
+.custom-popup {
+    width: min(420px, 100%);
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    padding: 24px;
+
+    border: 1px solid #cbd5e1;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+
+    animation: popupAppear 0.2s ease;
+}
+
+@keyframes popupAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.custom-popup h3 {
+    color: #b45309;
+
+    margin-bottom: 12px;
+
+    font-size: 1.1rem;
+}
+
+.custom-popup p {
+    color: #475569;
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+
+    font-size: 0.95rem;
+}
+
+.custom-popup button {
+    float: right;
+
+    border: none;
+
+    border-radius: 6px;
+
+    padding: 9px 20px;
+
+    background: #0284c7;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 0.9rem;
+}
+
+.custom-popup button:hover {
+    background: #0369a1;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .panel {
+        width: 100%;
+    }
+
+    .visual-stage {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .visual-stage {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 20px 10px;
+    }
+
+    .cupboard-unit {
+        width: 115px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .visual-stage {
+        grid-template-columns: 1fr;
+    }
+
+    .visual-stage .cupboard-unit:only-child {
+        grid-column: auto;
+    }
+}
+
+/* =========================================
+   EXPERIMENT 3 - NEW COMPONENTS
+   ========================================= */
+
+/* ---- Alter banner ---- */
+
+.alter-banner {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 1400px;
+    margin: 0 auto 16px;
+    padding: 12px 16px;
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 8px;
+    color: #92400e;
+    font-size: 0.9rem;
+}
+
+.alter-banner.show {
+    display: flex;
+}
+
+.alter-banner button {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    background: #92400e;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.alter-banner button:hover {
+    background: #78350f;
+}
+
+/* ---- Records section ---- */
+
+.records-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 20px auto 0;
+}
+
+.records-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.records-toolbar .text-input {
+    max-width: 380px;
+}
+
+.record-count {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.records-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    background: #fff;
+}
+
+.records-table th,
+.records-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.records-table th {
+    background: #e0f2fe;
+    color: #075985;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.records-table tr:hover td {
+    background: #f1f5f9;
+}
+
+.records-table .empty-cell {
+    text-align: center;
+    color: #64748b;
+    padding: 24px;
+}
+
+.missing {
+    color: #b45309;
+    font-style: italic;
+}
+
+.row-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.row-btn {
+    border: none;
+    border-radius: 5px;
+    padding: 6px 11px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.2s ease;
+}
+
+.row-btn.update { background: #0284c7; }
+.row-btn.update:hover { background: #0369a1; }
+.row-btn.alter { background: #d97706; }
+.row-btn.alter:hover { background: #b45309; }
+.row-btn.delete { background: #dc2626; }
+.row-btn.delete:hover { background: #b91c1c; }
+
+.sync-status {
+    margin-top: 12px;
+    font-size: 0.78rem;
+    color: #64748b;
+    word-break: break-all;
+}
+
+.sync-status.warn {
+    color: #b91c1c;
+}
+
+/* ---- Alteration log ---- */
+
+.alter-log {
+    max-height: 320px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.log-empty {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.log-entry {
+    background: #fff;
+    border: 1px solid #dbe3ec;
+    border-left: 4px solid #0284c7;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: #334155;
+}
+
+.log-entry.alter {
+    border-left-color: #d97706;
+}
+
+.log-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.log-time {
+    font-weight: 400;
+    color: #64748b;
+    font-size: 0.78rem;
+}
+
+.log-change {
+    padding-left: 10px;
+    line-height: 1.5;
+}
+
+/* ---- Modals ---- */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9000;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal {
+    width: min(440px, 100%);
+    max-height: 100%;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    animation: popupAppear 0.2s ease;
+}
+
+.modal h3 {
+    color: #0284c7;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.modal h3.danger {
+    color: #dc2626;
+}
+
+.modal-note {
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.modal-error {
+    color: #b91c1c;
+    font-size: 0.85rem;
+    min-height: 1.2em;
+    margin-bottom: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-actions button {
+    padding: 10px 18px;
+}
+
+.danger-btn {
+    border: none;
+    border-radius: 6px;
+    background: #dc2626;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.danger-btn:hover {
+    background: #b91c1c;
+}
+
+/* ---- Toast ---- */
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: #0f172a;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 10000;
+    max-width: 90vw;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.toast.error {
+    background: #b91c1c;
+}
+
+@media (max-width: 700px) {
+    .alter-banner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+
+/* ---- Update / Alter panel (Exp 3) ---- */
+
+.manage-section {
+    max-width: 1400px;
+    margin: 20px auto 0;
+}
+
+.manage-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    color: #1e293b;
+    font-size: 0.9rem;
+}
+
+.manage-intro span {
+    color: #64748b;
+    font-size: 0.8rem;
+}
+
+.manage-heading {
+    margin: 14px 0 10px;
+    font-size: 1rem;
+    color: #0f172a;
+}
+
+.manage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px 20px;
+}
+
+.manage-grid .text-input[readonly] {
+    background: #f1f5f9;
+    color: #475569;
+    cursor: not-allowed;
+}
+
+.manage-grid .text-input:disabled {
+    background: #f1f5f9;
+    cursor: not-allowed;
+}
+
+.manage-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0 8px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.manage-green {
+    border: none;
+    border-radius: 6px;
+    padding: 11px 24px;
+    background: #15803d;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.manage-green:hover:not(:disabled) {
+    background: #166534;
+}
+
+.manage-link {
+    border: none;
+    background: none;
+    color: #b91c1c;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 14px;
+}
+
+.manage-link:hover:not(:disabled) {
+    text-decoration: underline;
+}
+
+.manage-actions button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.manage-message {
+    min-height: 1.3em;
+    margin-bottom: 14px;
+    font-size: 0.88rem;
+    color: #15803d;
+    text-align: right;
+}
+
+.manage-message.error {
+    color: #b91c1c;
+}
+
+.component-table {
+    margin-top: 4px;
+}
+
+.component-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) minmax(160px, 2fr) 150px;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.component-head {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #075985;
+}
+
+.comp-input {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: #fff;
+}
+
+.comp-input[readonly] {
+    background: #f1f5f9;
+    color: #334155;
+}
+
+.comp-input:disabled {
+    background: #f1f5f9;
+}
+
+.comp-btn {
+    padding: 9px 12px;
+    border: 1px solid #b91c1c;
+    border-radius: 6px;
+    background: #fff;
+    color: #b91c1c;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.comp-btn:hover:not(:disabled) {
+    background: #fef2f2;
+}
+
+.comp-btn.required {
+    border-color: #cbd5e1;
+    color: #64748b;
+    cursor: default;
+}
+
+.comp-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.manage-note {
+    margin-top: 12px;
+    font-size: 0.82rem;
+    color: #475569;
+}
+
+@media (max-width: 700px) {
+    .component-row {
+        grid-template-columns: 1fr;
+    }
+
+    .component-head {
+        display: none;
+    }
+}

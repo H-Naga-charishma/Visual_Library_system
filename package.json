@@ -1,0 +1,10 @@
+{
+  "name": "exp3-library-storage",
+  "version": "1.0.0",
+  "description": "Experiment 3 - Library Visual Storage System with Update / Alter / Delete",
+  "main": "server.js",
+  "scripts": {
+  "start": "node server.js",
+  "dev": "node --watch server.js"
+}
+}
